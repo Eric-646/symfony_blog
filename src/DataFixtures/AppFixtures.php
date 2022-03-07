@@ -73,13 +73,13 @@ class AppFixtures extends Fixture
                 $manager->persist($cat);
                 
                 for ($j = 1; $j <= 5; $j++) {
-                    
+                    // ($faker->numberBetween(10, 20))
                     $article = new Article();
                     $article->setTitre($faker->word($faker->numberBetween(1, 5)));
                     // $article->setTitre($faker->sentence($nbWords = 2, $variableNbWords = true));
-                    $article->setContenu($faker->realText($faker->numberBetween(10, 20)));
+                    $article->setContenu($faker->realText);
                     $article->setDatePublication($faker->dateTimeBetween('-6 months'));
-                    $article->setImageSrc("toto.jpg");
+                    $article->setImageSrc("https://picsum.photos/250/80");
                     $article->setNombreVues(0);
                     $article->setCategorie($cat);
                     // $article->setUser($toto);

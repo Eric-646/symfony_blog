@@ -1,19 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Main{% endblock %}
-
-{% block body %}
-<h1>Main</h1>
-
-{% for article in articles %}
-
-<h2>{{ article.titre }} du {{ article.datePublication|date("d/m/Y")}} rédigé par {{ article.user.pseudo }}</h2>
-<p>Catégorie : {{ article.categorie.nom }}</p>
-<p>Nombre de vues : {{ article.nombreVues }}</p>
-<p>{{ article.contenu }}</p>
-<a href="{{ path('app_articles_id', {id: article.id}) }}">Lire la suite</a>
-
-{% endfor %}
-
+{% block title %}Main
 {% endblock %}
 
+{% block body %}
+	<div class="container">
+		<div class="row">
+			{% for article in articles %}
+				<div class="col-md-4">
+					<div class="card">
+						<img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+
+						<div class="card-body">
+							<h5 class="card-title">{{ article.titre }}</h5>
+							<p class="card-text">{{ article.contenu }}</p>
+							<p>{{ article.user.pseudo }}
+								-
+								{{ article.datePublication|date("d/m/Y")}}</p>
+							<p>Catégorie :
+								{{ article.categorie.nom }}</p>
+							<p>Nombre de vues :
+								{{ article.nombreVues }}</p>
+
+							<a href="{{ path('app_articles_id', {id: article.id}) }}" class="btn btn-outline-primary">Lire la suite</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
