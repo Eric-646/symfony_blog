@@ -36,7 +36,7 @@ class MainController extends AbstractController
             $commentaire->setDate(new \DateTime());
             $commentaire->setPublie(false);
             $commentaire->setArticle($article);
-            $user = $userRepository->find(177);
+            $user = $userRepository->find(34);
             $commentaire->setUser($user);
 
             $entityManager = $managerRegistry->getManager();
