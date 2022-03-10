@@ -36,12 +36,13 @@ class MainController extends AbstractController
             $commentaire->setDate(new \DateTime());
             $commentaire->setPublie(false);
             $commentaire->setArticle($article);
-            $user = $userRepository->find(34);
+            $user = $this->getUser();
             $commentaire->setUser($user);
 
             $entityManager = $managerRegistry->getManager();
             $entityManager->persist($commentaire);
             $entityManager->flush();
+            $this->addFlash("success", "Votre commentaire a bien été enregistré. En attente de validation." );
         }
 
         return $this->render('main/article.html.twig', [
@@ -50,4 +51,5 @@ class MainController extends AbstractController
             
         ]);
     }
+   
 }

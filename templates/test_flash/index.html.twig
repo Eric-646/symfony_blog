@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestFlashController!{% endblock %}
+
+{% block body %}
+<h1>Test flash message</h1>
+{% for message in app.flashes('success') %}
+    {{ message }}
+{% endfor %}
+{% endblock %}
