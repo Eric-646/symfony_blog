@@ -49,11 +49,11 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linkToDashboard('Accueil', 'fa fa-home'),
             MenuItem::section("blog"),
-            MenuItem::linkToCrud('Catégories', 'fa fa-tags', Categorie::class),
+            MenuItem::linkToCrud('Catégories', 'fa fa-list-alt', Categorie::class),
             MenuItem::linkToCrud('Articles', 'fa fa-tags', Article::class),
-            MenuItem::linkToCrud('Commentaires', 'fa fa-tags', Commentaire::class),
+            MenuItem::linkToCrud('Commentaires', 'fa fa-comments-o', Commentaire::class),
             MenuItem::section("utilisateurs"),
-            MenuItem::linkToCrud('Users', 'fa fa-tags', User::class),
+            MenuItem::linkToCrud('Users', 'fa fa-user', User::class),
 
 
 

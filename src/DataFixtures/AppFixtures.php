@@ -67,23 +67,21 @@ class AppFixtures extends Fixture
             for ($i = 1; $i <= 3; $i++) {
 
                 $cat = new Categorie();
-                // $cat->setNom($faker->sentence( 2, true));
+               
                 $cat->setNom($faker->word($faker->numberBetween(1, 3)));
-                //    dd($faker->sentence()) ;
+             
 
                 $manager->persist($cat);
 
                 for ($j = 1; $j <= 5; $j++) {
-                    // ($faker->numberBetween(10, 20))
+                    
                     $article = new Article();
                     $article->setTitre($faker->word($faker->numberBetween(1, 5)));
-                    // $article->setTitre($faker->sentence($nbWords = 2, $variableNbWords = true));
                     $article->setContenu($faker->realText);
                     $article->setDatePublication($faker->dateTimeBetween('-6 months'));
                     $article->setImageSrc("https://picsum.photos/250/80");
                     $article->setNombreVues(0);
                     $article->setCategorie($cat);
-                    // $article->setUser($toto);
                     $article->setUser($user);
 
                     $manager->persist($article);
@@ -95,7 +93,6 @@ class AppFixtures extends Fixture
                         $commentaire->setContenu($faker->realText($faker->numberBetween(10, 20)));
                         $commentaire->setPublie(false);
                         $commentaire->setArticle($article);
-                        // $commentaire->setUser($tata);
                         $commentaire->setUser($user);
 
                         $manager->persist($commentaire);
